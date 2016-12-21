@@ -5,38 +5,37 @@ angular.module('App', [])
 
     $scope.$watch(
         function () { return document.getElementById('billboard').scrollWidth },
-        function (newValue, oldValue) {
-            console.warn(newValue);
+        function (oldValue, newValue) {
             if(newValue != 0)
                 document.getElementById('billboard').height = newValue / 560 * 420;
         });
 
     $scope.$watch(
         function () { return document.getElementById('hellocorn').scrollWidth },
-        function (newValue, oldValue) {
+        function (oldValue, newValue) {
             if (newValue != 0)
-                document.getElementById('hellocorn').height = newValue / 560 * 420;
+                document.getElementById('hellocorn').height = newValue / 480 * 270;
         });
 
     $scope.$watch(
         function () { return document.getElementById('musicube1').scrollWidth },
-        function (newValue, oldValue) {
+        function (oldValue, newValue) {
             if (newValue != 0)
-                document.getElementById('musicube1').height = newValue / 560 * 420;
+                document.getElementById('musicube1').height = newValue / 560 * 315;
         });
 
     $scope.$watch(
         function () { return document.getElementById('musicube2').scrollWidth },
-        function (newValue, oldValue) {
+        function (oldValue, newValue) {
             if (newValue != 0)
-                document.getElementById('musicube2').height = newValue / 560 * 420;
+                document.getElementById('musicube2').height = newValue / 560 * 315;
         });
 
     $scope.$watch(
         function () { return document.getElementById('memorycage').scrollWidth },
-        function (newValue, oldValue) {
+        function (oldValue, newValue) {
             if (newValue != 0)
-                document.getElementById('memorycage').height = newValue / 560 * 420;
+                document.getElementById('memorycage').height = newValue / 560 * 315;
         });
 
     $scope.$watch(

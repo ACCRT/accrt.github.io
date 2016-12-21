@@ -75,7 +75,7 @@
                         I had a dream as a game developer when I entered college as a student majored in Software Engg. As a result, I choose Digital Arts as my branch.
                         <br />Demo of games or graphic works are listed.
                     </p>
-                    <p><a class="btn btn-default" ng-click="content.changePage(1)" role="button">View details &raquo;</a></p>
+                    <p><a class="btn btn-default" ng-click="content.changePage(1);" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
 
                 <div class="col-lg-4">
@@ -101,7 +101,7 @@
             </div><!-- /.row -->
             
             <!-- START THE FEATURETTES -->
-            <div id="game_content" ng-show="content.page == 1">
+            <div id="game_content" ng-hide="!(content.page == 1)">
 
                 <hr class="featurette-divider">
 
@@ -133,7 +133,9 @@
                         </p>
                     </div>
                     <div class="col-md-6" style="margin-top:180px">
-                        <iframe width="560" height="420" src="https://www.youtube.com/embed/cYifJ6LMqdo" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="billboard" style="width:100%" src="https://www.youtube.com/embed/cYifJ6LMqdo" frameborder="0" allowfullscreen
+                                onload="document.getElementById('billboard').height = document.getElementById('billboard').scrollWidth / 560 * 420;"
+                                onchange="document.getElementById('billboard').height = document.getElementById('billboard').scrollWidth / 560 * 420;"></iframe>
                         <!--<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=c0354qlwqjg&auto=0" allowFullScreen="true" quality="high" width="560" height="420" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
                     </div>
                 </div>
@@ -171,7 +173,8 @@
                     <div class="col-md-5 col-md-pull-7" style="margin-top:0px">
                         <img class="featurette-image img-responsive center-block" src="assets/img/corn.png" alt="Generic placeholder image">
                         <br/>
-                        <iframe width="480" height="270" src="https://www.youtube.com/embed/e-WZ2UVPFaY" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="hellocorn" style="width:100%" src="https://www.youtube.com/embed/e-WZ2UVPFaY" frameborder="0" allowfullscreen
+                                onload="document.getElementById('hellocorn').height = document.getElementById('hellocorn').scrollWidth / 480 * 270;"></iframe>
                         <!--<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=h0354s5y4em&auto=0" allowFullScreen="true" quality="high" width="480" height="280" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
                     </div>
                 </div>
@@ -180,7 +183,7 @@
 
                 <div class="row featurette">
                     <div class="col-md-5">
-                        <h2 class="featurette-heading" style="margin-top:0px">Musicube <span class="text-muted"><br/>A LeapMotion based Music Game.</span></h2>
+                        <h2 class="featurette-heading" style="margin-top:20px">Musicube <span class="text-muted"><br/>A LeapMotion based Music Game.</span></h2>
                         <p class="lead">
                             This piece of work is a group project on HCI class. We combined leapmotion with music game and tried to get a totally new expierence for traditional music game palyers.
                             <br />
@@ -201,11 +204,13 @@
                             You can veiw my source code in:<br /><a href="https://github.com/yanjiasen4/HCI">https://github.com/yanjiasen4/HCI</a>
                         </p>
                     </div>
-                    <div class="col-md-7" style="margin-top:130px">
-                        <iframe width="640" height="290" src="https://www.youtube.com/embed/OJwvm23bglw" frameborder="0" allowfullscreen></iframe>
+                    <div class="col-md-7" style="margin-top:0px">
+                        <iframe id="musicube1" style="width:100%" src="https://www.youtube.com/embed/OJwvm23bglw" frameborder="0" allowfullscreen
+                                onload="document.getElementById('musicube1').height = document.getElementById('musicube1').scrollWidth / 560 * 315;"></iframe>
                         <!--<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=z0353adxjn5&auto=0" allowFullScreen="true" quality="high" width="640" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
                         <br /><br />
-                        <iframe width="640" height="290" src="https://www.youtube.com/embed/QU-nNmSY4VU" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="musicube2" style="width:100%" src="https://www.youtube.com/embed/QU-nNmSY4VU" frameborder="0" allowfullscreen
+                                onload="document.getElementById('musicube2').height = document.getElementById('musicube2').scrollWidth / 560 * 315;"></iframe>
                         <!--<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=d0353sj14pc&auto=0" allowFullScreen="true" quality="high" width="640" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
                     </div>
                 </div>
@@ -236,17 +241,21 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-md-pull-6" style="margin-top:200px">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/TGcK4W_4I9s" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="memorycage" style="width:100%" src="https://www.youtube.com/embed/TGcK4W_4I9s" frameborder="0" allowfullscreen
+                                onload="document.getElementById('memorycage').height = document.getElementById('memorycage').scrollWidth / 560 * 315;"></iframe>
                     </div>
                 </div>
 
             </div>
 
-            <div id="comic_content" ng-show="content.page == 2">
+            <div id="comic_content" ng-hide="!(content.page == 2)">
                 <hr class="featurette-divider" style="">
                 <div class="row featurette">
                     <div class="col-md-6" style="margin-top:50px">
-                        <iframe width="480" height="360" src="https://www.youtube.com/embed/sYxH8D7CI3s" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="supperzzle" style="width:100%" src="https://www.youtube.com/embed/sYxH8D7CI3s" frameborder="0" allowfullscreen
+                                onload="if (document.getElementById('supperzzle').scrollWidth != 0) { document.getElementById('supperzzle').height = document.getElementById('supperzzle').scrollWidth / 480 * 360; }"
+                                onresize="console.warn('CHanged');document.getElementById('supperzzle').height = document.getElementById('supperzzle').scrollWidth / 480 * 360;"
+                                ></iframe>
                         <!--<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=g0353zkq1g2&auto=0" allowFullScreen="true" quality="high" width="480" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
                     </div>
                     <div class="col-md-6">
@@ -318,7 +327,7 @@
                     </div>
                 </div>
             </div>
-            <div id="photo_content" ng-show="content.page == 3">
+            <div id="photo_content" ng-hide="!(content.page == 3)">
                 <hr class="featurette-divider">
                 <div class="row featurette">
                     <div class="col-md-7">
@@ -385,6 +394,7 @@
             </footer>
         </div><!-- /.container -->
     </div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

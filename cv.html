@@ -633,8 +633,9 @@
             <div class="col-lg-2 col-lg-offset-1">
                 <h5>WORK SAMPLE</h5>
             </div>
-            <div class="col-lg-5">
-                <iframe width="560" height="420" src="https://www.youtube.com/embed/cYifJ6LMqdo" frameborder="0" allowfullscreen></iframe>
+            <div class="col-lg-5 ">
+                <iframe id="billboard" style="width:100%" src="https://www.youtube.com/embed/cYifJ6LMqdo" frameborder="0" allowfullscreen
+                        onload="document.getElementById('billboard').height = document.getElementById('billboard').scrollWidth/560*420;"></iframe>
             </div>
             <div class="col-lg-4">
                 <p><t>Billboard Demo</t></p>
@@ -672,19 +673,20 @@
                     </more>
                 </p>
             </div>
-            <div class="col-lg-5" style="margin-top:100px">
-                <iframe width="480" height="270" src="https://www.youtube.com/embed/e-WZ2UVPFaY" frameborder="0" allowfullscreen></iframe>
+            <div class="col-lg-5" style="margin-top:60px">
+                <iframe id="hellocorn" style="width:100%" src="https://www.youtube.com/embed/e-WZ2UVPFaY" frameborder="0" allowfullscreen
+                        onload="document.getElementById('hellocorn').height = document.getElementById('hellocorn').scrollWidth / 480 * 270;"></iframe>
             </div>
 
-            <div class="col-lg-6 col-lg-offset-3">
-                <iframe width="640" height="290" src="https://www.youtube.com/embed/OJwvm23bglw" frameborder="0" allowfullscreen></iframe>
-                <!--<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=z0353adxjn5&auto=0" allowFullScreen="true" quality="high" width="640" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
+            <div class="col-lg-5 col-lg-offset-3">
+                <iframe id="musicube1" style="width:100%" src="https://www.youtube.com/embed/OJwvm23bglw" frameborder="0" allowfullscreen
+                        onload="document.getElementById('musicube1').height = document.getElementById('musicube1').scrollWidth / 560 * 315;"></iframe>
                 <br /><br />
-                <iframe width="640" height="290" src="https://www.youtube.com/embed/QU-nNmSY4VU" frameborder="0" allowfullscreen></iframe>
-                <!--<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=d0353sj14pc&auto=0" allowFullScreen="true" quality="high" width="640" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
+                <iframe id="musicube2" style="width:100%" src="https://www.youtube.com/embed/QU-nNmSY4VU" frameborder="0" allowfullscreen
+                        onload="document.getElementById('musicube2').height = document.getElementById('musicube2').scrollWidth / 560 * 315;"></iframe>
             </div>
-            <div class="col-lg-3">
-                <p><t>Musicube</t></p>
+            <div class="col-lg-4">
+                <p style="margin-top:50px"><t>Musicube</t></p>
                 <p>
                     <more>
                         We combined leapmotion with music game and tried to get a totally new expierence for traditional music game palyers.<br/><br/>
@@ -714,7 +716,8 @@
                 </p>
             </div>
             <div class="col-lg-5" style="margin-top:30px">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/TGcK4W_4I9s" frameborder="0" allowfullscreen></iframe>
+                <iframe id="memorycage" style="width:100%" width="560" height="315" src="https://www.youtube.com/embed/TGcK4W_4I9s" frameborder="0" allowfullscreen
+                        onload="document.getElementById('memorycage').height = document.getElementById('memorycage').scrollWidth / 560 * 315;"></iframe>
             </div>
 
         </div><!--/.row -->
@@ -758,6 +761,15 @@
 		</div>
 	</div>
 	
+    <script type="text/javascript">
+        window.onresize = function () {
+            document.getElementById('billboard').height = document.getElementById('billboard').scrollWidth / 560 * 420;
+            document.getElementById('hellocorn').height = document.getElementById('hellocorn').scrollWidth / 480 * 270;
+            document.getElementById('musicube1').height = document.getElementById('musicube1').scrollWidth / 560 * 315;
+            document.getElementById('musicube2').height = document.getElementById('musicube2').scrollWidth / 560 * 315;
+            document.getElementById('memorycage').height = document.getElementById('memorycage').scrollWidth / 560 * 315;
+        }
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

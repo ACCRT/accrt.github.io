@@ -126,7 +126,7 @@
                         I had a dream as a game developer when I entered college as a student majored in Software Engg. As a result, I choose Digital Arts as my branch.
                         <br />Demo of games or graphic works are listed.
                     </p>
-                    <p><a class="btn btn-default" ng-click="content.changePage(1);" role="button">View details &raquo;</a></p>
+                    <p><a class="btn btn-default smoothScroll" href="#content" ng-click="content.changePage(1);" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
 
                 <div class="col-lg-4">
@@ -136,7 +136,7 @@
                         As a comic lover, espacially in furry one, I put some of the characters I designed here.
                         <br />This part also contains a sample of hand-drawing advertisement done last semester with my friends.
                     </p>
-                    <p><a class="btn btn-default" ng-click="content.changePage(2)" role="button">View details &raquo;</a></p>
+                    <p><a class="btn btn-default smoothScroll" href="#content" ng-click="content.changePage(2);" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
 
                 <div class="col-lg-4">
@@ -146,13 +146,14 @@
                         I took a class as Photography. It's one of the class in my second major Animation. But it's a pity I have no time finish all my second major class.
                         <br />Here are some pictures I took during this class.
                     </p>
-                    <p><a class="btn btn-default" ng-click="content.changePage(3)" role="button">View details &raquo;</a></p>
+                    <p><a class="btn btn-default smoothScroll" ng-click="content.changePage(3)" href="#content" role="button">View details &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
 
             </div><!-- /.row -->
             
+            <div id="content"></div>
             <!-- START THE FEATURETTES -->
-            <div id="game_content" ng-hide="!(content.page == 1)">
+            <div id="game_content" ng-show="(content.page == 1)">
 
                 <hr class="featurette-divider">
 

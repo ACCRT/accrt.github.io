@@ -39,7 +39,7 @@ body {
 
 /* Carousel base class */
 .carousel {
-  height: 500px;
+  height: 400px;
   margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
@@ -49,16 +49,51 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 500px;
+  height: 400px;
   background-color: #777;
 }
-.carousel-inner > .item > img {
+.carousel-inner > .item > .first-slide {
   position: absolute;
   top: 0;
   left: 0;
+  background: url(assets/img/slide1.JPG) no-repeat center top;
+  text-align:center;
+  background-attachment: relative;
+  
+  min-height: 500px;
   width: 100%;
-  min-height:500px;
 
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.carousel-inner > .item > .second-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(assets/img/slide2.JPG) no-repeat center top;
+  text-align:center;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 500px;
+  width: 100%;
+
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 

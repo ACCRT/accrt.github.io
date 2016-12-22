@@ -75,7 +75,6 @@ body {
 }
 
 .carousel-inner > .item > .second-slide {
-  position: absolute;
   top: 0;
   left: 0;
   background: url(assets/img/slide2.JPG) no-repeat center top;

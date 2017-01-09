@@ -95,6 +95,27 @@ body {
   background-size: cover;
 }
 
+.carousel-inner > .item > .third-slide {
+  top: 0;
+  left: 0;
+  background: url(assets/img/DSCF5180.JPG) no-repeat center top;
+  text-align:center;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 500px;
+  width: 100%;
+
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

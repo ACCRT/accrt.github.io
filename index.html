@@ -55,9 +55,9 @@
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right" style="margin-right:20px">
-                                <li ng-class="{'active':content.page == 1}"><a ng-click="content.changePage(1)" role="button">Game</a></li>
-                                <li ng-class="{'active':content.page == 2}"><a ng-click="content.changePage(2)" role="button">Comic</a></li>
-                                <li ng-class="{'active':content.page == 3}"><a ng-click="content.changePage(3)" role="button">Photo</a></li>
+                                <li ng-class="{'active smoothScroll':content.page == 1}"><a class="smoothScroll" href="#content" ng-click="content.changePage(1)" role="button">Game</a></li>
+                                <li ng-class="{'active smoothScroll':content.page == 2}"><a class="smoothScroll" href="#content" ng-click="content.changePage(2)" role="button">Comic</a></li>
+                                <li ng-class="{'active smoothScroll':content.page == 3}"><a class="smoothScroll" href="#content" ng-click="content.changePage(3)" role="button">Photo</a></li>
                             </ul>
                         </div>
                     </div>

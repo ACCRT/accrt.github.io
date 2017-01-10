@@ -87,7 +87,8 @@
 					<h5>Video Eassy</h5>
 				</div>
 				<div class="col-lg-6">
-                    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/mO3n7JuinFM" frameborder="0" allowfullscreen></iframe>
+                    <iframe id="video" style="width:100%" src="https://www.youtube.com/embed/mO3n7JuinFM" frameborder="0" allowfullscreen
+                            onload="document.getElementById('video').height = document.getElementById('video').scrollWidth / 560 * 315;"></iframe>
 				</div>
 				
 				

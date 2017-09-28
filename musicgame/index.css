@@ -1,0 +1,116 @@
+svg#tap_text text {
+    text-anchor: middle;
+    font-weight:bold;
+    font-size:30px;
+    font-family:Microsoft Yahei;
+}
+svg#calculation_text text{
+    stroke-linejoin: round;
+    stroke-width: 2;
+}
+
+svg#calculation_text > #inner_calculation_text > #inner_calculation_word text{
+    font-size:20px;font-family:
+    Microsoft Yahei;
+}
+
+svg#calculation_text > #inner_calculation_text > #inner_calculation_number text{
+    font-size:25px;
+    font-family:'Verdana';
+}
+
+svg#calculation_text > #greater_calculation_text text {
+    font-size:30px;
+    font-family:Microsoft Yahei;
+}
+
+svg#tap_stroke text {
+    stroke-width :9;
+    stroke-linejoin: round;
+}
+
+svg.stroke_brown900 text{
+    stroke: #3E2723;
+}
+
+svg.fill_brown900 text{
+    fill: #3E2723;
+}
+
+svg.stroke_yellow100 text{
+    stroke: #FFF9C4;
+}
+
+svg.fill_yellow100 text{
+    fill: #FFF9C4;
+}
+
+svg .stroke_red500{
+    stroke : #f44336; 
+}
+
+svg .fill_red500{
+    fill : #f44336; 
+}
+
+svg .greater_stroke{
+    stroke-linejoin: round;
+    font-size:20px;
+    font-family:Microsoft Yahei
+}
+
+svg .stroke_light_blue500{
+    stroke: #03A9F4;
+}
+
+svg .stroke_yellow100 {
+    stroke: #FFF9C4;
+}
+
+svg .fill_yellow100{
+    fill: #FFF9C4;
+}
+
+svg .fill_light_blue500{
+    fill : #03A9F4;
+}
+
+svg .stroke_orange500{
+    stroke : #FF9800;
+}
+
+svg .fill_orange500{
+    fill : #FF9800;
+}
+
+svg .stroke_brown500{
+    stroke:#795548;
+}
+
+svg .stroke_brown900{
+    stroke:#3E2723
+}
+
+svg .fill_brown500{
+    fill:#795548;
+}
+
+svg .fill_brown900{
+    fill:#3E2723;
+}
+
+svg .fill_brown400{
+    fill:#8D6E63;
+}
+
+svg .fill_black {
+    fill: #000000;
+}
+
+svg .fill_white {
+    fill:#ffffff;
+}
+
+.invisible {
+    visibility:hidden;
+}

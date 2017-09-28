@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <title>Music Game</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Yunxiang Zhang">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <!-- SVG canvas-->
+    <svg width="1280" height="600" >
+
+        <!-- The background which can rotate with the time -->
+        <image x="-1382.5" y="-592.5" width="4045" height="4045"
+               xlink:href="background.jpg" >
+        </image>
+        <image x="-1382.5" y="-592.5" width="4045" height="4045"
+               xlink:href="cloud.png">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="360 640 1430"
+                              begin="0s" dur="200s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </image>
+
+        <!-- UI Background -->
+        <circle r="1100" style="fill:#795548;" cx="640" cy="1430"></circle>
+        <circle r="1090" style="fill:#3E2723;" cx="640" cy="1430"></circle>
+        <circle r="1050" style="fill:#795548;" cx="640" cy="1430"></circle>
+        <circle r="1048" style="fill:#3E2723;" cx="640" cy="1430"></circle>
+        <circle r="1008" style="fill:#795548;" cx="640" cy="1430"></circle>
+        <circle r="988" style="fill:#8D6E63;" cx="640" cy="1430"></circle>
+
+        <!-- GREAT text when tap -->
+        <text x="640" y="320" dx="0 -2 -2 -2 -3" style="stroke: #3E2723; text-anchor: middle; stroke-width :9;font-weight:bold; stroke-linejoin: round; fill : #FF9800; font-size:30px;font-family:Microsoft Yahei">
+            GREAT
+        </text>
+        <!-- For svg 2 has removed stroke aligment, and the default way of stroke is center, have to have a copy to cover the inner stroke -->
+        <text x="640" y="320" dx="0 -2 -2 -2 -3" style="text-anchor: middle; font-weight:bold; fill : #FF9800; font-size:30px;font-family:Microsoft Yahei">
+            GREAT
+        </text>
+
+        <!-- MISS text when tap -->
+        <text x="640" y="320" dx="0 -2 -2 -2 -3" style="stroke: #3E2723; text-anchor: middle; stroke-width :9;font-weight:bold; stroke-linejoin: round; fill : #f44336; font-size:30px;font-family:Microsoft Yahei">
+            MISS
+        </text>
+        <!-- For svg 2 has removed stroke aligment, and the default way of stroke is center, have to have a copy to cover the inner stroke -->
+        <text x="640" y="320" dx="0 -2 -2 -2 -3" style="text-anchor: middle; font-weight:bold; fill : #f44336; font-size:30px;font-family:Microsoft Yahei">
+            MISS
+        </text>
+
+        <!-- GOOD text when tap -->
+        <text x="640" y="320" dx="0 -2 -2 -2 -3" style="stroke: #3E2723; text-anchor: middle; stroke-width :9;font-weight:bold; stroke-linejoin: round; fill : #03A9F4; font-size:30px;font-family:Microsoft Yahei">
+            GOOD
+        </text>
+        <!-- For svg 2 has removed stroke aligment, and the default way of stroke is center, have to have a copy to cover the inner stroke -->
+        <text x="640" y="320" dx="0 -2 -2 -2 -3" style="text-anchor: middle; font-weight:bold; fill : #03A9F4; font-size:30px;font-family:Microsoft Yahei">
+            GOOD
+        </text>
+
+        <defs>
+            <!-- Define the gradient of the shade-->
+            <linearGradient id="gradient1"
+                            x1="0%" y1="100%"
+                            x2="0%" y2="0%"
+                            spreadMethod="pad">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+                <stop offset="100%" stop-color="#000000" stop-opacity="1" />
+            </linearGradient>
+
+            <linearGradient id="gradient2"
+                            x1="100%" y1="0%"
+                            x2="0%" y2="0%"
+                            spreadMethod="pad">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+                <stop offset="100%" stop-color="#000000" stop-opacity="1" />
+            </linearGradient>
+
+            <!-- Masks using 2 squares and 1 circle to help make the sector -->
+            <mask id="yellowGreatMask" x="0" y="0" width="1280" height="980">
+                <rect x="640" y="1430" width="980" height="980"
+                      style="stroke:none; fill: #ffffff"
+                      transform="rotate(220,640,1430)" />
+                <rect x="640" y="1430" width="980" height="980"
+                      style="stroke:none; fill: #000000"
+                      transform="rotate(190.2,640,1430)" />
+                <circle r="940" style="fill:#000000" cx="640" cy="1430"></circle>
+            </mask>
+
+            <mask id="blueGoodMask" x="0" y="0" width="1280" height="980">
+                <rect x="640" y="1430" width="980" height="980"
+                      style="stroke:none; fill: #ffffff"
+                      transform="rotate(189.8,640,1430)" />
+                <rect x="640" y="1430" width="980" height="980"
+                      style="stroke:none; fill: #000000"
+                      transform="rotate(170.2,640,1430)" />
+                <circle r="940" style="fill:#000000" cx="640" cy="1430"></circle>
+            </mask>
+
+            <mask id="redMissMask" x="0" y="0" width="1280" height="980">
+                <rect x="640" y="1430" width="980" height="980"
+                      style="stroke:none; fill: #ffffff"
+                      transform="rotate(169.8,640,1430)" />
+                <rect x="640" y="1430" width="980" height="980"
+                      style="stroke:none; fill: #000000"
+                      transform="rotate(145,640,1430)" />
+                <circle r="940" style="fill:#000000" cx="640" cy="1430"></circle>
+            </mask>
+
+            <mask id="redTapMask" x="0" y="0" width="1280" height="980">
+                <rect x="640" y="1430" width="1090" height="1090"
+                      style="stroke:none; fill: url(#gradient2)"
+                      transform="rotate(180,640,1430)" />
+                <circle r="1008" style="fill:#000000" cx="640" cy="1430"></circle>
+            </mask>
+
+            <mask id="blueTapMask" x="0" y="0" width="1280" height="980">
+                <rect x="640" y="1430" width="1090" height="1090"
+                      style="stroke:none; fill: url(#gradient1)"
+                      transform="rotate(270,640,1430)" />
+                <circle r="1008" style="fill:#000000" cx="640" cy="1430"></circle>
+            </mask>
+        </defs>
+
+        <!-- The sectors -->
+        <circle r="980" style="fill:#FF9800; mask: url(#yellowGreatMask)" cx="640" cy="1430"></circle>
+        <circle r="980" style="fill:#03A9F4; mask: url(#blueGoodMask)" cx="640" cy="1430"></circle>
+        <circle r="980" style="fill:#f44336; mask: url(#redMissMask)" cx="640" cy="1430"></circle>
+
+        <!-- The Tap shade sectprs -->
+        <circle id="redTapShade" r="1090" style="fill:#f44336; mask: url(#redTapMask)" cx="640" cy="1430"></circle>
+        <circle id="blueTapShade" r="1090" style="fill:#03A9F4; mask: url(#blueTapMask)" cx="640" cy="1430"></circle>
+
+<!--        <circle r="930" style="fill:#f44336;" cx="640" cy="1430"></circle> -->
+
+        <!-- The circle at the middle -->
+        <circle r="40" style="fill:#3E2723" cx="640" cy="381"></circle>
+        <circle r="34" style="fill:#795548" cx="640" cy="381"></circle>
+        <circle r="30" style="fill:#3E2723" cx="640" cy="381"></circle>
+        <circle r="16" style="fill:#795548" cx="640" cy="381"></circle>
+        <circle r="12" style="fill:#3E2723" cx="640" cy="381"></circle>
+
+        <!-- the red circle-->
+        <circle r="34" style="fill:#f44336" cx="640" cy="381">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="360 640 1430"
+                              begin="0s" dur="10s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </circle>
+        <circle r="30" style="fill:#3E2723" cx="640" cy="381">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="360 640 1430"
+                              begin="0s" dur="10s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </circle>
+        <circle r="26" style="fill:#f44336" cx="640" cy="381">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="360 640 1430"
+                              begin="0s" dur="10s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </circle>
+
+        <!-- the blue circle-->
+        <circle r="34" style="fill:#03A9F4" cx="640" cy="381">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="10 640 1430"
+                              begin="0s" dur="2s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </circle>
+        <circle r="30" style="fill:#3E2723" cx="640" cy="381">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="10 640 1430"
+                              begin="0s" dur="2s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </circle>
+        <circle r="26" style="fill:#03A9F4" cx="640" cy="381">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="10 640 1430"
+                              begin="0s" dur="2s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </circle>
+
+        <!-- the yellow circle -->
+        <circle r="34" style="fill:#FF9800" cx="640" cy="381">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="10 640 1430"
+                              begin="0s" dur="1s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </circle>
+        <circle r="30" style="fill:#3E2723" cx="640" cy="381">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="10 640 1430"
+                              begin="0s" dur="1s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </circle>
+        <circle r="26" style="fill:#FF9800" cx="640" cy="381">
+            <animateTransform attributeName="transform"
+                              type="rotate"
+                              from="0 640 1430" to="10 640 1430"
+                              begin="0s" dur="1s"
+                              repeatCount="indefinite">
+            </animateTransform>
+        </circle>
+
+        <!--Path for the text-->
+        <defs>
+            <!-- Path for MISS, GOOD, GREAT -->
+            <path id="greaterTextPath"
+                  d="M-310,1430
+             A1,1 0 0,1 1590,1430"
+                  style="stroke:none; fill:none;" />
+            <!-- Path for COMBO, SCORE, BPM -->
+            <path id="innerTextPath"
+                  d="M-270,1430
+             A1,1 0 0,1 1560,1430"
+                  style="stroke:none; fill:none;" />
+        </defs>
+
+        <!-- COMBO Calculation Text-->
+        <text x="10" y="1430" dx="1100" style="stroke: #f44336;stroke-linejoin: round; fill : #f44336; font-size:20px;font-family:Microsoft Yahei" >
+            <textPath xlink:href="#innerTextPath">
+                COMBO
+            </textPath>
+        </text>
+        <text x="10" y="1430" dx="1200" style="stroke: #FFF9C4;stroke-linejoin: round; fill : #FFF9C4; font-size:25px;font-family:'Verdana'">
+            <textPath xlink:href="#innerTextPath">
+                0 0 0 0
+            </textPath>
+        </text>
+
+        <!-- SCORE Calculation Text-->
+        <text x="10" y="1430" dx="1340" style="stroke: #03A9F4;stroke-width:2 ;stroke-linejoin: round; fill : #03A9F4; font-size:20px;font-family:Microsoft Yahei">
+            <textPath xlink:href="#innerTextPath">
+                SCORE
+            </textPath>
+        </text>
+        <text x="10" y="1430" dx="1440" style="stroke: #FFF9C4;stroke-width:2 ;stroke-linejoin: round; fill : #FFF9C4; font-size:25px;font-family:'Verdana'">
+            <textPath xlink:href="#innerTextPath">
+                0 0 0 0 0 0
+            </textPath>
+        </text>
+
+        <!-- BPM Text-->
+        <text x="10" y="1430" dx="1620" style="stroke: #FF9800;stroke-width:2 ;stroke-linejoin: round; fill : #FF9800; font-size:20px;font-family:Microsoft Yahei">
+            <textPath xlink:href="#innerTextPath">
+                BPM
+            </textPath>
+        </text>
+        <text x="10" y="1430" dx="1690" style="stroke: #FFF9C4;stroke-width:2 ;stroke-linejoin: round; fill : #FFF9C4; font-size:25px;font-family:'Verdana'">
+            <textPath xlink:href="#innerTextPath">
+                1 2 8
+            </textPath>
+        </text>
+
+        <!-- Miss Calculation Text-->
+        <text x="10" y="1430" dx="1070 4 4 4" style="stroke: #3E2723;stroke-width:2 ;stroke-linejoin: round; fill : #3E2723; font-size:30px;font-family:Microsoft Yahei">
+            <textPath xlink:href="#greaterTextPath">
+                MISS
+            </textPath>
+        </text>
+        <text x="10" y="1430" dx="1166 7 7 7" style="stroke: #3E2723;stroke-width:2 ;stroke-linejoin: round; fill : #3E2723; font-size:30px;font-family:Microsoft Yahei">
+            <textPath xlink:href="#greaterTextPath">
+                0001
+            </textPath>
+        </text>
+
+        <!-- GOOD Calculation Text-->
+        <text x="10" y="1430" dx="1354 4 4 4" style="stroke: #3E2723;stroke-width:2 ;stroke-linejoin: round; fill : #3E2723; font-size:30px;font-family:Microsoft Yahei">
+            <textPath xlink:href="#greaterTextPath">
+                GOOD
+            </textPath>
+        </text>
+        <text x="10" y="1430" dx="1508 7 7 7" style="stroke: #3E2723;stroke-width:2 ;stroke-linejoin: round; fill : #3E2723; font-size:30px;font-family:Microsoft Yahei">
+            <textPath xlink:href="#greaterTextPath">
+                0001
+            </textPath>
+        </text>
+
+        <!-- GREAT Calculation Text-->
+        <text x="10" y="1430" dx="1680 4 4 4 4" style="stroke: #3E2723;stroke-width:2 ;stroke-linejoin: round; fill : #3E2723; font-size:30px;font-family:Microsoft Yahei">
+            <textPath xlink:href="#greaterTextPath">
+                GREAT
+            </textPath>
+        </text>
+        <text x="10" y="1430" dx="1812 7 7 7" style="stroke: #3E2723;stroke-width:2 ; stroke-linejoin: round; fill : #3E2723; font-size:30px;font-family:Microsoft Yahei">
+            <textPath xlink:href="#greaterTextPath">
+                0001
+            </textPath>
+        </text>
+    </svg>
+</body>
+</html>

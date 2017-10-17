@@ -1,7 +1,6 @@
 window.onload = function () {
-    console.log("tets");
-    document.cookie = "city=Houston";
-    document.cookie = "city=Dallas";
+    document.cookie = "city1=Houston";
+    document.cookie = "city2=Dallas";
 
     if (document.cookie.split(";").length > 1) {
         document.cookie = "state=TX";
